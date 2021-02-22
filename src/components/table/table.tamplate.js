@@ -3,7 +3,7 @@ const CODES = {
   Z: 90
 }
 
-export function createTable(rowsCount = 20) {
+export function createTable(rowsCount = 200) {
   const colsCount = CODES.Z - CODES.A + 1
   const rows = []
   
@@ -29,24 +29,31 @@ function toChar(_, index) {
 }
 
 function createRow(index, content) {
+  const resize = index ? '<div class="row-resize" data-resize="row"></div>' : ''
   return `
-    <div class="row">
-     <div class="row-info">${index}</div>
+    <div class="row" data-type="resizable">
+     <div class="row-info">
+        ${index}
+        ${resize}
+     </div>
      <div class="row-data">${content}</div>
     </div>
   `
 }
 
-function createCol(col) {
+function createCol(col, index) {
   return `
-    <div class="column">
+    <div class="column" data-type="resizable" data-col="${index}">
         ${col}
+        <div class="col-resize" data-resize="col"></div>
     </div>
   `
 }
 
-function createCell() {
+function createCell(_, index) {
   return `
-    <div class="cell" contenteditable></div>
+    <div class="cell" contenteditable data-col="${index}">
+    
+    </div>
   `
 }
