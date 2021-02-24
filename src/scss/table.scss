@@ -8,7 +8,6 @@
   top: $header-height + $toolbar-height + $formula-height;
   overflow-x: auto;
   padding-bottom: 2px;
-  padding-top: $row-height;
   z-index: 0;
 
   .row {
@@ -16,13 +15,6 @@
     flex-direction: row;
     min-height: 20px;
     height: $row-height;
-  }
-
-  .row--header {
-    position: fixed;
-    top: $header-height + $toolbar-height + $formula-height;
-    z-index: 2000;
-
   }
 
   .row-info {

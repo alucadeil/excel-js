@@ -2,7 +2,7 @@
 @import "mixins";
 
 .excel__toolbar {
-  position: fixed;
+  position: absolute;
   top: $header-height;
   left: 0;
   right: 0;
