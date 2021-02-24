@@ -58,7 +58,6 @@ export class Table extends ExcelComponent {
     this.$emit('table:select', $cell)
     const styles = $cell.getStyles(Object.keys(defaultStyles))
     this.$dispatch(actions.changeStyles(styles))
-    console.log('To dispatch', styles)
   }
   
   async resizeTable(event) {
@@ -108,12 +107,15 @@ export class Table extends ExcelComponent {
   updateTextInStore(value) {
     this.$dispatch(actions.changeText({
       id: this.selection.current.id(),
-      value: $(event.target).text()
+      value
     }))
   }
   
   onInput(event) {
+    const $target = $(event.target)
     // this.$emit('table:input', $(event.target))
-    this.updateTextInStore($(event.target).text())
+    this.updateTextInStore($target.text())
+    this.selection.current
+        .attr('data-value', $target.text())
   }
 }

@@ -20,7 +20,7 @@
   .db_new {
     margin-top: $db-header-height;
     padding: 1.5rem;
-    background: #dadce0;
+    background: #f1f3f4;
   }
 
   .db__create {
@@ -69,10 +69,7 @@
   }
 
   .db__record {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 14px 12px 14px;
+
     margin-bottom: 5px;
 
     &:hover {
@@ -81,13 +78,17 @@
     }
     
     a {
+      padding: 12px 14px 12px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       text-decoration: none;
       cursor: pointer;
       color: #202124;
       font-size: 14px;
       
       &:hover {
-        text-decoration: underline;
+        text-decoration: none;
       }
     }
   }
