@@ -1,6 +1,6 @@
 import {storage} from '@core/utils'
 
-function toHTML(key) {
+function toTableHTML(key) {
   const model = storage(key)
   const id = key.split(':')[1]
   return `
@@ -12,6 +12,16 @@ function toHTML(key) {
           </strong>
         </a>
     </li>
+  `
+}
+
+function toDashHTML(key) {
+  const model = storage(key)
+  const id = key.split(':')[1]
+  return `
+    <a href="#excel/${id}" class="db__page">
+        ${model.title}
+    </a>
   `
 }
 
@@ -27,18 +37,27 @@ function getAllKeys() {
   return keys
 }
 
-export function createRecordsTable() {
-  const keys = getAllKeys()
-  if (!keys.length) {
-    return `<p>Вы не создали ни одной таблицы</p>`
-  }
-  return `
+export function createRecordsTable(table = true) {
+  let keys = getAllKeys()
+  if (table) {
+    if (!keys.length) {
+      return `<p>Вы не создали ни одной таблицы</p>`
+    }
+    return `
   <div class="db__list-header">
       <span>Название</span>
       <span>Дата открытия</span>
   </div>
   <ul class="db__list">
-    ${keys.map(toHTML).join('')}
+    ${keys.map(toTableHTML).join('')}
   </ul>
   `
+  } else {
+    keys = keys.slice(0, 4)
+    return `
+      <div class="db__pages">
+        ${keys.map(toDashHTML).join('')}
+      </div>
+    `
+  }
 }

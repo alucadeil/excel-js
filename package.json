@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=development webpack serve",
     "build": "cross-env NODE_ENV=production webpack --mode production",
-    "lint": "npx eslint ./src"
+    "lint": "npx eslint ./src",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -23,8 +24,8 @@
   "bugs": {
     "url": "https://github.com/alucadeil/excel-js/issues"
   },
-  "homepage": "https://github.com/alucadeil/excel-js#readme",
-  "private": true,
+  "homepage": "https://alucadeil.github.io/excel-js",
+  "private": false,
   "browserslist": "> 0.25%, not dead",
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -50,6 +51,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "gh-pages": "^3.1.0",
     "normalize.css": "^8.0.1"
   }
 }

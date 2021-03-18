@@ -10,11 +10,12 @@ export class DashboardPage extends Page {
             <h1>Панель управления Excel</h1>
         </div>
 
-        <div class="db_new">
-            <div class="db__view">
+        <div class="db__new">
+            <div class="db__show">
                 <a href="#excel/${now}" class="db__create">
-                    Новая <br> страница
+                    Создать <br> страницу
                 </a>
+                ${createRecordsTable(false)}
             </div>
         </div>
 
